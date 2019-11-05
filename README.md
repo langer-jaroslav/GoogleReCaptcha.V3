@@ -2,6 +2,11 @@
 Library for Google's ReCaptcha v3 backend
 https://www.google.com/recaptcha
 
+# Interface
+
+    Task<bool> IsCaptchaPassedAsync(string token);
+    Task<JObject> GetCaptchaResultData(string token);
+
 # Setup guide
 Install the package https://www.nuget.org/packages/GoogleReCaptcha.V3/ using nuget
 Update your appsetting.json config file
@@ -58,3 +63,11 @@ inject ICaptchaValidator
         }
         return View(collection)
       }
+
+# Additional info
+You can use following method instead to get all response data
+        
+    async Task<JObject> GetCaptchaResultData(string token)
+    
+# Exceptions
+Methods can throw 'HttpRequestException' when connection to the Google's service doesn't work or service doesn't response with HTTP 200
