@@ -7,6 +7,8 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Copyright>Copyright © Jaroslav Langer 2019</Copyright>
     <PackageTags>captcha;recaptcha;</PackageTags>
+    <PackageProjectUrl>https://github.com/Jarda29/GoogleReCaptcha.V3</PackageProjectUrl>
+    <NeutralLanguage>en</NeutralLanguage>
   </PropertyGroup>
 
   <ItemGroup>
