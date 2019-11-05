@@ -6,7 +6,7 @@
     <Description>Library for Google's ReCaptcha v3 backend</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Copyright>Copyright © Jaroslav Langer 2019</Copyright>
-    <PackageTags>captcha;recaptcha;</PackageTags>
+    <PackageTags>captcha;recaptcha;google;core;v3</PackageTags>
     <PackageProjectUrl>https://github.com/Jarda29/GoogleReCaptcha.V3</PackageProjectUrl>
     <NeutralLanguage>en</NeutralLanguage>
   </PropertyGroup>
