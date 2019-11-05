@@ -9,6 +9,7 @@
     <PackageTags>captcha;recaptcha;google;core;v3</PackageTags>
     <PackageProjectUrl>https://github.com/Jarda29/GoogleReCaptcha.V3</PackageProjectUrl>
     <NeutralLanguage>en</NeutralLanguage>
+    <Version>1.1.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
