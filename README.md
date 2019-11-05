@@ -2,6 +2,8 @@
 Library for Google's ReCaptcha v3 backend
 https://www.google.com/recaptcha
 
+Target platform: .NET Core 3
+
 # Interface
 
     Task<bool> IsCaptchaPassedAsync(string token);
