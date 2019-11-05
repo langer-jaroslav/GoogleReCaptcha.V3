@@ -3,13 +3,13 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <Authors>Jaroslav Langer</Authors>
-    <Description>Library for Google's ReCaptcha v3 backend</Description>
+    <Description>Simplay add Google's reCaptcha v3 to your .NET Core 3 project. Go to github for step-by-step help implementation.</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Copyright>Copyright © Jaroslav Langer 2019</Copyright>
-    <PackageTags>captcha;recaptcha;google;core;v3</PackageTags>
+    <PackageTags>captcha;recaptcha;google;core;netcore;v3</PackageTags>
     <PackageProjectUrl>https://github.com/Jarda29/GoogleReCaptcha.V3</PackageProjectUrl>
     <NeutralLanguage>en</NeutralLanguage>
-    <Version>1.1.0</Version>
+    <Version>1.1.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
