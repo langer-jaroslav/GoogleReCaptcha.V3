@@ -1,9 +1,11 @@
 ﻿using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace GoogleReCaptcha.V3.Interface
 {
     public interface ICaptchaValidator
     {
-        Task<bool> IsCaptchaPassedAsync(string gRecaptchaResponse);
+        Task<bool> IsCaptchaPassedAsync(string token);
+        Task<JObject> GetCaptchaResultData(string token);
     }
 }

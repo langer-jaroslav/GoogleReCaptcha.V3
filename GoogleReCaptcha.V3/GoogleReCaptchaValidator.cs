@@ -20,21 +20,26 @@ namespace GoogleReCaptcha.V3
             _configuration = configuration;
         }
 
-        public async Task<bool> IsCaptchaPassedAsync(string gRecaptchaResponse)
+        public async Task<bool> IsCaptchaPassedAsync(string token)
+        {
+            dynamic response = await GetCaptchaResultData(token);
+            return response.success == "true";
+        }
+
+        public async Task<JObject> GetCaptchaResultData(string token)
         {
             var content = new FormUrlEncodedContent(new[]
             {
                 new KeyValuePair<string, string>("secret", _configuration["googleReCaptcha:SecretKey"]),
-                new KeyValuePair<string, string>("response", gRecaptchaResponse)
+                new KeyValuePair<string, string>("response", token)
             });
             var res = await _httpClient.PostAsync(RemoteAddress, content);
             if (res.StatusCode != HttpStatusCode.OK)
             {
-                return false;
+                throw new HttpRequestException(res.ReasonPhrase);
             }
             var jsonResult = await res.Content.ReadAsStringAsync();
-            dynamic jsonData = JObject.Parse(jsonResult);
-            return jsonData.success == "true";
+            return JObject.Parse(jsonResult);
         }
     }
 }
