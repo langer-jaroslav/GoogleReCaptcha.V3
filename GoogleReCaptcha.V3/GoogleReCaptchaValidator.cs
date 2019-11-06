@@ -26,7 +26,7 @@ namespace GoogleReCaptcha.V3
             return response.success == "true";
         }
 
-        public async Task<JObject> GetCaptchaResultData(string token)
+        public async Task<JObject> GetCaptchaResultDataAsync(string token)
         {
             var content = new FormUrlEncodedContent(new[]
             {

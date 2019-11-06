@@ -9,7 +9,8 @@
     <PackageTags>captcha;recaptcha;google;core;netcore;v3</PackageTags>
     <PackageProjectUrl>https://github.com/Jarda29/GoogleReCaptcha.V3</PackageProjectUrl>
     <NeutralLanguage>en</NeutralLanguage>
-    <Version>1.1.1</Version>
+    <Version>1.1.2</Version>
+    <PackageReleaseNotes>GetCaptchaResultData renamed to GetCaptchaResultDataAsync</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
