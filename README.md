@@ -7,7 +7,7 @@ Target platform: .NET Core 3
 # Interface
 
     Task<bool> IsCaptchaPassedAsync(string token);
-    Task<JObject> GetCaptchaResultData(string token);
+    Task<JObject> GetCaptchaResultDataAsync(string token);
 
 # Setup guide
 Install the package https://www.nuget.org/packages/GoogleReCaptcha.V3/ using nuget
@@ -69,7 +69,7 @@ inject ICaptchaValidator
 # Additional info
 You can use following method instead to get all response data
         
-    async Task<JObject> GetCaptchaResultData(string token)
+    async Task<JObject> GetCaptchaResultDataAsync(string token)
     
 # Exceptions
 Methods can throw 'HttpRequestException' when connection to the Google's service doesn't work or service doesn't response with HTTP 200
