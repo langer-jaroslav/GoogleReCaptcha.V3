@@ -6,6 +6,6 @@ namespace GoogleReCaptcha.V3.Interface
     public interface ICaptchaValidator
     {
         Task<bool> IsCaptchaPassedAsync(string token);
-        Task<JObject> GetCaptchaResultData(string token);
+        Task<JObject> GetCaptchaResultDataAsync(string token);
     }
 }

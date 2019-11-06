@@ -22,7 +22,7 @@ namespace GoogleReCaptcha.V3
 
         public async Task<bool> IsCaptchaPassedAsync(string token)
         {
-            dynamic response = await GetCaptchaResultData(token);
+            dynamic response = await GetCaptchaResultDataAsync(token);
             return response.success == "true";
         }
 
