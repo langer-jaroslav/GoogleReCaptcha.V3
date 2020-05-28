@@ -2,7 +2,9 @@
 Library for Google's ReCaptcha v3 backend
 https://www.google.com/recaptcha
 
-Target platform: .NET Core 3
+Target platform: .NET Core 3.1
+
+When targeting 3.0 use package version 1.1.2
 
 # Interface
 
@@ -73,3 +75,6 @@ You can use following method instead to get all response data
     
 # Exceptions
 Methods can throw 'HttpRequestException' when connection to the Google's service doesn't work or service doesn't response with HTTP 200
+
+# Contact
+Contact me in case you find any errors or problem via email langerjara@gmail.com
