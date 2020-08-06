@@ -10,14 +10,16 @@ namespace GoogleReCaptcha.V3
 {
     public class GoogleReCaptchaValidator : ICaptchaValidator
     {
+
         private readonly HttpClient _httpClient;
-        private readonly IConfiguration _configuration;
         private const string RemoteAddress = "https://www.google.com/recaptcha/api/siteverify";
+        private string _secretKey;
 
         public GoogleReCaptchaValidator(HttpClient httpClient, IConfiguration configuration)
         {
             _httpClient = httpClient;
-            _configuration = configuration;
+
+            _secretKey = configuration["googleReCaptcha:SecretKey"];
         }
 
         public async Task<bool> IsCaptchaPassedAsync(string token)
@@ -30,7 +32,7 @@ namespace GoogleReCaptcha.V3
         {
             var content = new FormUrlEncodedContent(new[]
             {
-                new KeyValuePair<string, string>("secret", _configuration["googleReCaptcha:SecretKey"]),
+                new KeyValuePair<string, string>("secret", _secretKey),
                 new KeyValuePair<string, string>("response", token)
             });
             var res = await _httpClient.PostAsync(RemoteAddress, content);
@@ -40,6 +42,11 @@ namespace GoogleReCaptcha.V3
             }
             var jsonResult = await res.Content.ReadAsStringAsync();
             return JObject.Parse(jsonResult);
+        }
+
+        public void UpdateSecretKey(string key)
+        {
+            _secretKey = key;
         }
     }
 }

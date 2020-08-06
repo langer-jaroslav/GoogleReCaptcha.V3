@@ -9,8 +9,8 @@
     <PackageTags>captcha;recaptcha;google;core;netcore;v3</PackageTags>
     <PackageProjectUrl>https://github.com/Jarda29/GoogleReCaptcha.V3</PackageProjectUrl>
     <NeutralLanguage>en</NeutralLanguage>
-    <Version>1.2.0</Version>
-    <PackageReleaseNotes>Targeting .NET Core 3.1</PackageReleaseNotes>
+    <Version>1.3.0</Version>
+    <PackageReleaseNotes>Added method UpdateSecretKey(string key)</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
