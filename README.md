@@ -73,9 +73,26 @@ You can use following method instead to get all response data
         
     async Task<JObject> GetCaptchaResultDataAsync(string token)
     
-To update secret key there is method
+To update secret key there is method.
 
     void UpdateSecretKey(string key);
+    
+Method must be called jsut before the validation await _captchaValidator.IsCaptchaPassedAsync(captcha) after the form has been sent like this:
+
+    [HttpPost]
+    public async Task<IActionResult> Register(SampleViewModel collection, string captcha)
+    {
+        _captchaValidator.UpdateSecretKey("NEW SECRET KEY");
+        if (!await _captchaValidator.IsCaptchaPassedAsync(captcha))
+        {
+            ModelState.AddModelError("captcha","Captcha validation failed");
+        }
+        if(ModelState.IsValid)
+        {
+            ViewData["Message"] = "Success";
+        }
+        return View(collection);
+    }
     
 # Exceptions
 Methods can throw 'HttpRequestException' when connection to the Google's service doesn't work or service doesn't response with HTTP 200
