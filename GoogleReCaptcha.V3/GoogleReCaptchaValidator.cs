@@ -13,19 +13,26 @@ namespace GoogleReCaptcha.V3
 
         private readonly HttpClient _httpClient;
         private const string RemoteAddress = "https://www.google.com/recaptcha/api/siteverify";
-        private string _secretKey;
+        private string _secretKey { get; set; }
+        private decimal RecaptchaThreshold { get; set; }
 
         public GoogleReCaptchaValidator(HttpClient httpClient, IConfiguration configuration)
         {
             _httpClient = httpClient;
 
             _secretKey = configuration["googleReCaptcha:SecretKey"];
+            var hasThreshold = decimal.TryParse(configuration["googleReCaptcha:Threshold"], out decimal threshold);
+            if (hasThreshold)
+            {
+                RecaptchaThreshold = threshold;
+            }
         }
 
         public async Task<bool> IsCaptchaPassedAsync(string token)
         {
             dynamic response = await GetCaptchaResultDataAsync(token);
-            return response.success == "true";
+            
+            return response.success == "true" && response.score < RecaptchaThreshold;
         }
 
         public async Task<JObject> GetCaptchaResultDataAsync(string token)
