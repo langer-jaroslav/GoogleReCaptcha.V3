@@ -15,8 +15,9 @@ When targeting 3.0 use package version 1.1.2
 Install the package https://www.nuget.org/packages/GoogleReCaptcha.V3/ using nuget
 Update your appsetting.json config file
 
-    "googleReCaptcha:SiteKey": "_YOUR_SITE_KEY",
+    "googleReCaptcha:SiteKey": "YOUR_SITE_KEY",
     "googleReCaptcha:SecretKey": "YOUR_SECRET_KEY"
+    "googleReCaptcha:SecretKey": "YOUR_MINIMUM_ACCEPTABLE_SCORE"
     
 You can get your keys here: https://www.google.com/recaptcha/admin
 

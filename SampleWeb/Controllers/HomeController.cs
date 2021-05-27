@@ -35,6 +35,10 @@ namespace SampleWeb.Controllers
             {
                 ViewData["Message"] = "Success";
             }
+            else
+            {
+                ViewData["Message"] = "Failure";
+            }
             return View(collection);
         }
 

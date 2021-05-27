@@ -14,18 +14,24 @@ namespace GoogleReCaptcha.V3
         private readonly HttpClient _httpClient;
         private const string RemoteAddress = "https://www.google.com/recaptcha/api/siteverify";
         private string _secretKey;
+        private double _minimumScore;
 
         public GoogleReCaptchaValidator(HttpClient httpClient, IConfiguration configuration)
         {
             _httpClient = httpClient;
-
+            
             _secretKey = configuration["googleReCaptcha:SecretKey"];
+            _minimumScore = System.Convert.ToDouble(configuration["googleReCaptcha:MinimumScore"]);
         }
 
         public async Task<bool> IsCaptchaPassedAsync(string token)
         {
             dynamic response = await GetCaptchaResultDataAsync(token);
-            return response.success == "true";
+            if (response.success == "true")
+            {
+                return System.Convert.ToDouble(response.score) >= _minimumScore;
+            }
+            return false;
         }
 
         public async Task<JObject> GetCaptchaResultDataAsync(string token)
