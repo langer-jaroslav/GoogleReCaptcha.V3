@@ -2,14 +2,15 @@
 Library for Google's ReCaptcha v3 backend
 https://www.google.com/recaptcha
 
-Target platform: .NET Core 3.1
+Target platform: .NET Core 3.1+
 
-When targeting 3.0 use package version 1.1.2
+When targeting Core 3.0 use package version 1.1.2
 
 # Interface
 
     Task<bool> IsCaptchaPassedAsync(string token);
     Task<JObject> GetCaptchaResultDataAsync(string token);
+    void UpdateSecretKey(string key);
 
 # Setup guide
 Install the package https://www.nuget.org/packages/GoogleReCaptcha.V3/ using nuget
