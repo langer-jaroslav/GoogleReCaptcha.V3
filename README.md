@@ -18,7 +18,7 @@ Update your appsetting.json config file
 
     "googleReCaptcha:SiteKey": "YOUR_SITE_KEY",
     "googleReCaptcha:SecretKey": "YOUR_SECRET_KEY"
-    "googleReCaptcha:SecretKey": "YOUR_MINIMUM_ACCEPTABLE_SCORE"
+    "googleReCaptcha:MinimumScore": "YOUR_MINIMUM_ACCEPTABLE_SCORE"
     
 You can get your keys here: https://www.google.com/recaptcha/admin
 
